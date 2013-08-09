@@ -1,3 +1,5 @@
+import corpus
+
 example_trans_map = { 'ᔪ': '_', 'ᔭ': '_', 'ᖚ': '_', 'ᖗ': '_',
                       'ᑲ': '_', 'ᑫ': '_', 'ᖆ': '_', 'ᖉ': '_',   
                       'ᘈ': '_', 'ᘊ': '_', 'ᘛ': '_', 'ᘖ': '_', 
@@ -13,3 +15,7 @@ def transliterate(s, trans_map):
     trans_table = str.maketrans(trans_map)
     return s.translate(trans_table)
 
+if __name__ == '__main__':
+    lines = corpus.read_sentences()
+    for line in lines:
+        print(transliterate(line, example_trans_map))
